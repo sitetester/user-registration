@@ -28,7 +28,7 @@ To change your account information use the registration form and validation.
 [Composer](https://getcomposer.org) is used for managing dependencies.
 
 Run ```composer install``` at root of the project. It will create ```vendor``` directory on file system with all 
-necessary project dependencies, which are defined in ```composer.json``` file. 
+necessary dependencies, which are defined in ```composer.json``` file. 
 
 ### Database Connection
 open ```.env``` file on root of the project and update this line according to your setup. 
