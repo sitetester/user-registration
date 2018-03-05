@@ -9,7 +9,9 @@
 
 {% block body %}
 
-    <div class="welcome"> Welcome, {{ app.user.username|default('') }}</div>
+    {% if app.user %}
+        <div class="welcome"> Welcome, {{ app.user.username|default('') }}</div>
+    {% endif %}
 
     {% for message in app.flashes('notice') %}
         <div class="flash-notice">

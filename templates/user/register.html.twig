@@ -11,7 +11,7 @@
   {% endblock %}
 
 {% block body %}
-
+    {{ parent() }}
     <div id="header_menu">
         <b style="display: inline">User Registration </b> | <a href="{{ path('dashboard') }}">Home</a>
     </div>
