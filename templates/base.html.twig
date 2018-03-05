@@ -10,7 +10,11 @@
 {% block body %}
 
     {% if app.user %}
-        <div style="font-weight: bold; margin-bottom: 20px;"> Welcome, {{ app.user.username|default('') }}</div>
+        <div style="font-weight: bold; margin-bottom: 20px;">
+            Welcome, {{ app.user.username|default('') }}
+            | <a href="{{ path('logout') }}">Logout</a>
+            | <a href="{{ path('dashboard') }}">Home</a>
+        </div>
     {% endif %}
 
     {% for message in app.flashes('notice') %}

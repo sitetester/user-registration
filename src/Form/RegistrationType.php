@@ -6,6 +6,7 @@ use App\Entity\City;
 use App\Entity\Country;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -17,7 +18,6 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
-use Doctrine\ORM\EntityRepository;
 
 class RegistrationType extends AbstractType
 {
@@ -35,8 +35,12 @@ class RegistrationType extends AbstractType
         $builder
             ->add('first')
             ->add('last')
-            ->add('email')
         ;
+
+        // not allowed to update email in EDIT mode
+        if (!$this->userLoggedIn) {
+            $builder->add('email');
+        }
 
         if (!$this->userLoggedIn) {
             $builder->add('password', RepeatedType::class,
@@ -56,8 +60,10 @@ class RegistrationType extends AbstractType
                 [
                     'class' => Country::class,
                     'query_builder' => function (EntityRepository $er) {
-                        return $er->createQueryBuilder('c')
-                            ->orderBy('c.name', 'ASC');
+                        return $er
+                            ->createQueryBuilder('c')
+                            ->orderBy('c.name', 'ASC')
+                            ;
                     },
                     'placeholder' => false,
                     'choice_label' => 'name',
