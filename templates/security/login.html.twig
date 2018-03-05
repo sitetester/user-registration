@@ -7,6 +7,12 @@
 
 {% block body %}
     {{ parent() }}
+
+    <div id="header_menu">
+        <b style="display: inline">User Login</b>
+    </div>
+
+
     <div id="user">
         <form action="{{ path('login') }}" method="post">
             <div>
@@ -15,7 +21,7 @@
             </div>
 
             <div>
-                <label for="password">Password:</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="_password"/>
             </div>
             <div>

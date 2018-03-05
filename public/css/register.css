@@ -45,8 +45,3 @@ div.error{
 div.flash-notice{
     color: green;
 }
-
-div.welcome {
-    font-weight: bold;
-    margin-bottom: 10px;
-}

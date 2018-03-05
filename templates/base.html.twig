@@ -10,7 +10,7 @@
 {% block body %}
 
     {% if app.user %}
-        <div class="welcome"> Welcome, {{ app.user.username|default('') }}</div>
+        <div style="font-weight: bold; margin-bottom: 20px;"> Welcome, {{ app.user.username|default('') }}</div>
     {% endif %}
 
     {% for message in app.flashes('notice') %}

@@ -53,14 +53,6 @@ class UserController extends Controller
                 $user->setPassword($password);
             }
 
-            $validator = Validation::createValidator();
-            $errors = $validator->validate($user);
-            if (\count($errors) > 0) {
-                return $this->render('user/validation.html.twig', [
-                    'errors' => $errors,
-                ]);
-            }
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
