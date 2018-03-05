@@ -24,7 +24,7 @@ To change your account information use the registration form and validation.
 * Symfony 4
 * Mysql
 
-## Project dependencies
+### Project dependencies
 [Composer](https://getcomposer.org) is used for managing dependencies.
 
 Run ```composer install``` at root of the project. It will create ```vendor``` directory on file system with all 
@@ -34,12 +34,12 @@ necessary dependencies, which are defined in ```composer.json``` file.
 open ```.env``` file on root of the project and update this line according to your setup. 
 ```DATABASE_URL=mysql://root:@127.0.0.1:3306/user_registration1```
 
-## Web server:
+### Web server:
 If you don't have apache/nginx already configured, you can use php built-in web server as well. 
 Open a terminal window & run ```php bin/console server:start``` at root of the project to start the server. 
 Then open a browser with address and port where web server started in terminal window.
 
-##DB Schema
+### DB Schema
 DB schema is defined in /config/doctrine/*.orm.xml. 
 To generate the necessary schema in database, run ```php bin/console doctrine:schema:update --force``` at root of the project.
 
