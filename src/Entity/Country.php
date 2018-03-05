@@ -2,15 +2,33 @@
 
 namespace App\Entity;
 
-class City
+use Doctrine\Common\Collections\ArrayCollection;
+
+class Country
 {
     private $id;
+    private $code;
     private $name;
-    private $country;
-    private $region;
-    private $url;
-    private $latitude;
-    private $longitude;
+    private $cities;
+    private $users;
+
+    public function __construct()
+    {
+        $this->cities = new ArrayCollection();
+        $this->users = new ArrayCollection();
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
 
     public function getId(): int
     {
@@ -25,66 +43,39 @@ class City
     public function setName(string $name)
     {
         $this->name = $name;
+
         return $this;
     }
 
-    public function getCountry(): string
+    /**
+     * @return City[]
+     */
+    public function getCities()
     {
-        return $this->country;
+        return $this->cities;
     }
 
-    public function setCountry(string $country)
+    public function setCities(ArrayCollection $cities): Country
     {
-        $this->country = $country;
+        $this->cities = $cities;
+
         return $this;
     }
 
-    public function getRegion(): string
+    public function getUsers(): ArrayCollection
     {
-        return $this->region;
+        return $this->users;
     }
 
-    public function setRegion(string $region)
+    public function setUsers(ArrayCollection $users): Country
     {
-        $this->region = $region;
-        return $this;
-    }
+        $this->users = $users;
 
-    public function getUrl(): string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(string $url)
-    {
-        $this->url = $url;
-        return $this;
-    }
-
-    public function getLatitude(): float
-    {
-        return $this->latitude;
-    }
-
-    public function setLatitude(float $latitude)
-    {
-        $this->latitude = $latitude;
-        return $this;
-    }
-
-    public function getLongitude(): float
-    {
-        return $this->longitude;
-    }
-
-    public function setLongitude(float $longitude)
-    {
-        $this->longitude = $longitude;
         return $this;
     }
 
     public function __toString()
     {
-      return $this->name;
+        return $this->id;
     }
 }

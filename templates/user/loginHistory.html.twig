@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ asset('css/register.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/loginHistory.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 
@@ -13,16 +13,18 @@
     </div>
 
 
-    <table>
-        <tr>
-        <th>Login</th>
-        <th>Logout</th>
+    <table id="loginHistory">
+        <tr >
+            <th>Login</th>
+            <th>Logout</th>
         </tr>
-        <tr>
-            <th>Login Date</th>
-            <th>Logout Date</th>
-        </tr>
+        {% for history in loginHistory %}
+            <tr>
+                <td>{{ history.loginDate }}</td>
+                <td>{{ history.logoutDate }}</td>
+            </tr>
 
+        {% endfor %}
     </table>
 
 {% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div id="user">
+        <form action="{{ path('login') }}" method="post">
+            <div>
+                <label for="username">Email</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password"/>
+            </div>
+            <div>
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"/>
+            </div>
+            <div>
+                <button type="submit" class="button">login</button>
+                | <a href="{{ path('register') }}">Register</a>
+            </div>
+            {% if error %}
+                <div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+        </form>
+    </div>
+
+{% endblock %}

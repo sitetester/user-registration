@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
+  {% block javascripts %}
+      <script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
+      <script src="{{ asset('js/register.js') }}"></script>
+  {% endblock %}
+
+{% block body %}
+
+    <div id="header_menu">
+        <b style="display: inline">User Registration </b> | <a href="{{ path('dashboard') }}">Home</a>
+    </div>
+
+    <div id="user">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

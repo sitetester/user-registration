@@ -17,11 +17,11 @@ class LoginHistoryRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('l')
             ->select('l')
-            ->where('l.userId = :userId')->setParameter('userId', $userId)
+            ->where('l.user = :userId')->setParameter('userId', $userId)
             ->orderBy('l.id', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
-            ->getResult()
+            ->getSingleResult()
             ;
     }
 

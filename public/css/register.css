@@ -1,0 +1,52 @@
+#header_menu {
+    margin-bottom: 10px;
+}
+
+div#user {
+    width: 50%;
+}
+
+div#user div label {
+    width: 125px;
+    display: inline-block;
+}
+
+div#user div label:after {
+    content: ": "
+}
+
+div#user div ul {
+    color: red;
+}
+
+div#user input {
+    margin-left: 10px;
+    width: 170px;
+}
+
+.button {
+    text-align: center;
+    margin-left: 137px;
+    margin-top: 10px;
+    padding: 4px 20px;
+}
+
+select {
+    margin-left: 10px;
+    width: 180px;
+}
+
+div.error{
+    color: red;
+    margin-left: 137px;
+    margin-top: 5px;
+}
+
+div.flash-notice{
+    color: green;
+}
+
+div.welcome {
+    font-weight: bold;
+    margin-bottom: 10px;
+}

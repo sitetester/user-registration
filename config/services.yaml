@@ -26,3 +26,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.login_event_listener:
+            class: App\Listener\LoginListener
+            tags:
+              - { name: kernel.event_listener, event: security.interactive_login, method: onSecurityInteractiveLogin }
+
+    app.logout_event_listener:
+                class: App\Listener\LogoutListener

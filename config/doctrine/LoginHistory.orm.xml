@@ -4,22 +4,16 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
         http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\Entity\User">
+    <entity name="App\Entity\LoginHistory" repository-class="App\Repository\LoginHistoryRepository">
 
         <id name="id" type="integer">
             <generator strategy="AUTO"/>
         </id>
 
-        <field name="first"/>
-        <field name="last"/>
-
-        <field name="email"/>
-        <field name="password"/>
-        <field name="loginDate" nullable="true"/>
+        <field name="loginDate"/>
         <field name="logoutDate" nullable="true"/>
 
-        <many-to-one field="country" target-entity="App\Entity\Country" inversed-by="users"/>
-        <many-to-one field="city" target-entity="App\Entity\City" inversed-by="users"/>
+        <many-to-one field="user" target-entity="App\Entity\User" inversed-by="loginHistory"/>
 
     </entity>
 </doctrine-mapping>

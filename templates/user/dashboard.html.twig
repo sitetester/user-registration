@@ -1,11 +1,18 @@
+{% extends 'base.html.twig' %}
+
 {% block stylesheets %}
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 {% block body %}
-    <div id="user">
-        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+
+    {{ parent() }}
+
+    <div id="header_menu">
+        <a href="{{ path('register') }}">Update Profile</a>
+        | <a href="{{ path('changePassword') }}">Change Password</a>
+        | <a href="{{ path('loginHistory') }}">Login History</a>
+        | <a href="{{ path('logout') }}">Logout</a>
     </div>
+
 {% endblock %}

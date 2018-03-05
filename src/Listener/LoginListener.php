@@ -2,11 +2,12 @@
 
 namespace App\Listener;
 
+use App\Entity\LoginHistory;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 
-class AuthenticationListener
+class LoginListener
 {
     private $entityManager;
 
@@ -19,13 +20,13 @@ class AuthenticationListener
     {
         /** @var User $user */
         $user = $event->getAuthenticationToken()->getUser();
-
         $dbUser = $this->entityManager->getRepository(User::class)->find($user->getId());
-        $dbUser->setLoginDate(
-            (new \DateTime())->format('Y-m-d H:i:s')
-        );
 
-        $this->entityManager->persist($dbUser);
+        $loginHistory = new LoginHistory();
+        $loginHistory->setLoginDate((new \DateTime())->format('Y-m-d H:i:s'));
+        $loginHistory->setUser($dbUser);
+
+        $this->entityManager->persist($loginHistory);
         $this->entityManager->flush();
     }
 
