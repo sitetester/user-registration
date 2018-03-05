@@ -1,0 +1,11 @@
+{% block stylesheets %}
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div id="user">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
