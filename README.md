@@ -47,5 +47,5 @@ To generate the necessary schema in database, run ```php bin/console doctrine:sc
 countries.sql and cities.sql are provided in ```data``` directory.
 
 ### Login/Logout History
-Listeners are defined ```App\Listener\*``` They track login/logout timings.
+Listeners are defined in ```App\Listener\*``` They track login/logout timings.
 
