@@ -1,4 +1,4 @@
-# Project description
+# Task description
 Using the Symfony framework, write an application that allows you to sign up, log in, change your account information when you are online and log out
 ### Registration form fields, field validation:
 * Name (not empty);
